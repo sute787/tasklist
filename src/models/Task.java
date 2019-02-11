@@ -41,6 +41,9 @@ public class Task {
     @Column(name = "updated_at", nullable = false)
     private Timestamp updated_at;
 
+    @Column(name = "deadline_at", nullable = false)
+    private Timestamp deadline_at;
+
     public Integer getId() {
         return id;
     }
@@ -79,5 +82,13 @@ public class Task {
 
     public void setUpdated_at(Timestamp updated_at) {
         this.updated_at = updated_at;
+    }
+
+    public Timestamp getDeadline_at() {
+        return deadline_at;
+    }
+
+    public void setDeadline_at(Timestamp deadline_at) {
+        this.deadline_at = deadline_at;
     }
 }

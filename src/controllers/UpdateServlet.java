@@ -47,6 +47,9 @@ public class UpdateServlet extends HttpServlet {
             String content = request.getParameter("content");
             m.setContent(content);
 
+            String deadline_at = request.getParameter("deadline_at");
+            m.setContent(deadline_at);
+
             Timestamp currentTime = new Timestamp(System.currentTimeMillis());
             m.setUpdated_at(currentTime);
 

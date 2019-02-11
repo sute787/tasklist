@@ -9,13 +9,17 @@
                 <table>
 				    <tbody>
 				        <tr>
-				            <th>タイトル</th>
+				            <th>タスクタイトル</th>
 				            <td><c:out value="${task.title}" /></td>
 				        </tr>
 				        <tr>
-				            <th>メッセージ</th>
+				            <th>タスク内容</th>
 				            <td><c:out value="${task.content}" /></td>
 				        </tr>
+                        <tr>
+                            <th>タスク期限</th>
+                            <td><fmt:formatDate value="${task.deadline_at}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
+                        </tr>
 				        <tr>
 				            <th>作成日時</th>
 				            <td><fmt:formatDate value="${task.created_at}" pattern="yyyy-MM-dd HH:mm:ss" /></td>

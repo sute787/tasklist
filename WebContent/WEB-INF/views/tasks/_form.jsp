@@ -17,5 +17,9 @@
 <input type="text" name="content" value="${task.content}" />
 <br /><br />
 
+<label for="content">タスク期限</label><br />
+<input type="date" name="deadline_at" value="${task.deadline_at}" required />
+<br /><br />
+
 <input type="hidden" name="_token" value="${_token}" />
 <button type="submit">投稿</button>

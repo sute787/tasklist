@@ -47,6 +47,9 @@ public class CreateServlet extends HttpServlet {
             String content = request.getParameter("content");
             m.setContent(content);
 
+            Timestamp deadline_at = request.getParameter("deadline_at");
+            m.setDeadline_at(deadline_at);
+
             Timestamp currentTime = new Timestamp(System.currentTimeMillis());
             m.setCreated_at(currentTime);
             m.setUpdated_at(currentTime);

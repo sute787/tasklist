@@ -1,5 +1,7 @@
 package models.validators;
 
+import java.sql.Timestamp;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +21,11 @@ public class Validator {
             errors.add(content_error);
         }
 
+        String deadline_at = _validateDeadline_at(m.getDeadline_at());
+        if(!deadline_at.equals("")) {
+            errors.add(deadline_at);
+        }
+
         return errors;
     }
 
@@ -33,6 +40,19 @@ public class Validator {
     private static String _validateContent(String content) {
         if(content == null || content.equals("")) {
             return "メッセージを入力してください。";
+        }
+
+        return "";
+    }
+
+    private static String _validateDeadline_at(Timestamp deadline_at) {
+        if(deadline_at == null) {
+            return "タスク期限を設定してください。";
+        }
+
+        LocalDate now = LocalDate.now();
+        if(now.isBefore(deadline_at.toLocalDateTime().toLocalDate())){
+            return "タスク期限を未来日に設定してください。";
         }
 
         return "";
