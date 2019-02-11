@@ -50,8 +50,8 @@ public class IndexServlet extends HttpServlet {
 
         em.close();
 
-        request.setAttribute("Tasks", tasks);
-        request.setAttribute("Tasks_count", tasks_count);
+        request.setAttribute("tasks", tasks);
+        request.setAttribute("tasks_count", tasks_count);
         request.setAttribute("page", page);
         if(request.getSession().getAttribute("flush") != null) {
             request.setAttribute("flush", request.getSession().getAttribute("flush"));
