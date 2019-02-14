@@ -51,7 +51,7 @@ public class Validator {
         }
 
         LocalDate now = LocalDate.now();
-        if(now.isBefore(deadline_at.toLocalDateTime().toLocalDate())){
+        if(now.isAfter(deadline_at.toLocalDateTime().toLocalDate())){
             return "タスク期限を未来日に設定してください。";
         }
 

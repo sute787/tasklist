@@ -2,6 +2,8 @@ package controllers;
 
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -47,8 +49,14 @@ public class UpdateServlet extends HttpServlet {
             String content = request.getParameter("content");
             m.setContent(content);
 
-            String deadline_at = request.getParameter("deadline_at");
-            m.setContent(deadline_at);
+            Timestamp deadline_at = null;
+            try {
+                deadline_at = new Timestamp(new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("deadline_at")).getTime());
+            } catch (ParseException e) {
+                // TODO 自動生成された catch ブロック
+                e.printStackTrace();
+            }
+            m.setDeadline_at(deadline_at);
 
             Timestamp currentTime = new Timestamp(System.currentTimeMillis());
             m.setUpdated_at(currentTime);
